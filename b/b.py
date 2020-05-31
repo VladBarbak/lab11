@@ -3,30 +3,30 @@
 h - буквами.
 Barbak Vladuslav 122V
 """
-while True:
-    f=open('f.txt', 'w')
-    list=([input("Введіть елемент: ") for i in range(int(input("Скільки чисел ви хочите ввести? ")))])
-    f.write(''.join(map(str,list)))
-    f=open('f.txt', 'r')
-    x=f.read()
-    f.close()
-
+while True:  # Цикл для подальшої перевірки користувача на перезапуск програми
+    f=open('f.txt', 'w')  # Відкриваємо файл для подальшого введення файлу в режимі запису данних
+    list=([input("Введіть елемент: ") for i in range(int(input("Скільки чисел ви хочите ввести? ")))])  # Задаємо значення з клавіатури попередньо ввііши розмірність файлу
+    f.write(''.join(map(str,list)))  # Записуємо в файл введені значення
+    f=open('f.txt', 'r')  # Відкривається файл в режимі читання
+    x=f.read()  # Значенню x присвоюємо данні з файлу для подальшої їхньої обробки
+    f.close()  # Закриваємо файл f
+# Створюємо два списки, один для цифр, інший для букв
     letters=[]
     numbers=[]
 
-    for i in x:
-        if i.isalpha():
-            letters.append(i)
-        if i.isnumeric():
-            numbers.append(i)
+    for i in x:  # Перебираємо кожний елемент із файлу f
+        if i.isalpha():  # Якщо елемент і є буквою
+            letters.append(i)  # То він додається в список letters
+        if i.isnumeric():  # # Якщо елемент і є цифрою
+            numbers.append(i)  # То він додається в список numbers
 
-    g=open('g.txt', 'w')
-    g.write(' '.join(map(str,numbers)))
-    g.close()
+    g=open('g.txt', 'w')  # Відкриваємо файл g для запису данних
+    g.write(' '.join(map(str,numbers)))  # Записуємо в файл список з цифр, розділивши їх пробілами
+    g.close()  # Закриваємо файл
 
-    h=open('h.txt', 'w')
-    h.write(' '.join(map(str,letters)))
-    h.close()
+    h=open('h.txt', 'w')  # Відкриваємо файл h для запису данних
+    h.write(' '.join(map(str,letters)))  # Записуємо в файл список з букв, розділивши їх пробілами
+    h.close()  # Закриваємо файл
 
     result = input("Хочите продовжити? Якщо да - 1, Якщо ні - інше: ")  # Зациклюємо програму
     if result == '1':
